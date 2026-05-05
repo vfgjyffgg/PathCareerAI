@@ -1,0 +1,8 @@
+import streamlit as st
+
+st.title("CareerPath AI")
+
+skills_input = st.text_input("Masukkan skill kamu")
+
+if st.button("Analisis"):
+    st.write("Skill kamu:", skills_input)
