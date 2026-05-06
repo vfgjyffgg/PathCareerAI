@@ -4,400 +4,450 @@ st.set_page_config(page_title="PathCareer AI", layout="wide")
 
 st.markdown("""
 <style>
-header[data-testid="stHeader"] {
-    display: none;
+header, #MainMenu, footer {visibility: hidden;}
+.stApp { background: #F4F7FB; }
+.block-container { padding: 35px 75px; }
+
+h1,h2,h3,h4,h5,h6,p,label,span,div {
+    color:#1F2937 !important;
 }
 
-#MainMenu {
-    visibility: hidden;
-}
-
-footer {
-    visibility: hidden;
-}
-
-.stApp {
-    background: #F8FAFC;
-}
-
-.block-container {
-    padding-top: 40px;
-    padding-left: 70px;
-    padding-right: 70px;
-}
-
-h1, h2, h3, h4, h5, h6, p, label {
-    color: #111827 !important;
-}
-
+/* CARD PUTIH */
 .card {
-    background: #FFFFFF;
-    padding: 38px;
-    border-radius: 28px;
-    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
-    margin-bottom: 28px;
+    background:#FFFFFF;
+    padding:34px;
+    border-radius:26px;
+    box-shadow:0 12px 30px rgba(15,23,42,0.08);
+    margin-bottom:24px;
 }
 
-.brand {
-    font-size: 30px;
-    font-weight: 900;
-    color: #111827 !important;
+/* CARD BIRU GRADASI */
+.blue-card, .result-blue {
+    background: linear-gradient(135deg, #3F6F9F 0%, #6F98C4 55%, #9CC3EA 100%);
+    padding:38px;
+    border-radius:30px;
+    box-shadow:0 16px 40px rgba(63,111,159,0.25);
+    margin-bottom:26px;
+}
+
+/* PAKSA SEMUA TEKS DI BIRU JADI PUTIH */
+.blue-card *,
+.result-blue * {
+    color:#FFFFFF !important;
+}
+
+.logo {
+    font-size:32px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#FFFFFF !important;
+}
+
+.hero {
+    font-size:64px;
+    font-weight:900;
+    color:#FFFFFF !important;
+    line-height:1;
+    margin-top:26px;
 }
 
 .desc {
-    font-size: 21px;
-    line-height: 1.5;
-    color: #374151 !important;
-    margin-top: 12px;
+    color:#4B5563 !important;
+    font-size:18px;
+    line-height:1.6;
 }
 
-.hero-title {
-    font-size: 76px;
-    font-weight: 900;
-    color: #4F7FAE !important;
-    line-height: 0.95;
-    margin-top: 30px;
+.desc-white {
+    color:#F3F8FF !important;
+    font-size:18px;
+    line-height:1.6;
 }
 
-.feature-card {
-    background: #EEF5FF;
-    padding: 24px;
-    border-radius: 22px;
-    border-left: 7px solid #4F7FAE;
-    margin-bottom: 18px;
+.info {
+    background:#EAF2FF;
+    padding:18px;
+    border-radius:18px;
+    border-left:6px solid #5B7FA6;
+    margin-bottom:14px;
 }
 
-.feature-card b {
-    color: #111827 !important;
-    font-size: 18px;
-}
-
-.feature-card p {
-    color: #4B5563 !important;
-    font-size: 15px;
+.result {
+    background:#FFFFFF;
+    padding:28px;
+    border-radius:24px;
+    border:1px solid #E5E7EB;
+    box-shadow:0 8px 22px rgba(15,23,42,0.06);
+    margin-bottom:18px;
 }
 
 .stButton button {
-    background-color: #4F7FAE !important;
-    color: #FFFFFF !important;
-    border-radius: 999px !important;
-    border: none !important;
-    padding: 13px 42px !important;
-    font-size: 17px !important;
-    font-weight: 800 !important;
+    background:#5B7FA6 !important;
+    color:#FFFFFF !important;
+    border:none !important;
+    border-radius:999px !important;
+    padding:12px 40px !important;
+    font-weight:800 !important;
 }
 
-.stButton button * {
-    color: #FFFFFF !important;
-}
+.stButton button * { color:#FFFFFF !important; }
 
-.stButton button:hover {
-    background-color: #3E6B96 !important;
-}
-
-/* INPUT NAMA */
 .stTextInput input {
-    background-color: #5F89B8 !important;
-    color: #FFFFFF !important;
-    border: 2px solid #4F7FAE !important;
-    border-radius: 16px !important;
-    font-size: 17px !important;
+    background:#6F98C4 !important;
+    color:#FFFFFF !important;
+    border:none !important;
+    border-radius:16px !important;
 }
 
-.stTextInput input::placeholder {
-    color: #EAF2FF !important;
+.stTextInput input::placeholder { color:#EAF2FF !important; }
+
+div[data-baseweb="select"] > div {
+    background:#6F98C4 !important;
+    border:none !important;
+    border-radius:16px !important;
 }
 
-/* SELECT SKILL */
-div[data-baseweb="select"] {
-    background-color: #5F89B8 !important;
-    border-radius: 16px !important;
+div[data-baseweb="select"] * { color:#FFFFFF !important; }
+
+ul[role="listbox"], li[role="option"] {
+    background:#6F98C4 !important;
+    color:#FFFFFF !important;
 }
 
-div[data-baseweb="select"] div,
-div[data-baseweb="select"] span {
-    color: #FFFFFF !important;
-}
+li[role="option"] * { color:#FFFFFF !important; }
+li[role="option"]:hover { background:#5B7FA6 !important; }
 
-div[data-baseweb="select"] input {
-    color: #FFFFFF !important;
-}
-
-div[data-baseweb="popover"] {
-    background-color: #5F89B8 !important;
-}
-
-ul[role="listbox"] {
-    background-color: #5F89B8 !important;
-    border-radius: 16px !important;
-}
-
-li[role="option"] {
-    background-color: #5F89B8 !important;
-    color: #FFFFFF !important;
-}
-
-li[role="option"] div,
-li[role="option"] span {
-    color: #FFFFFF !important;
-}
-
-li[role="option"]:hover {
-    background-color: #4F7FAE !important;
-}
-
-/* TAG SKILL */
 span[data-baseweb="tag"] {
-    background-color: #3E6B96 !important;
-    color: #FFFFFF !important;
+    background:#4A6C90 !important;
+    color:#FFFFFF !important;
 }
 
-span[data-baseweb="tag"] span {
-    color: #FFFFFF !important;
+span[data-baseweb="tag"] * { color:#FFFFFF !important; }
+
+.good {
+    background:#DCFCE7;
+    color:#166534 !important;
+    padding:8px 14px;
+    border-radius:999px;
+    display:inline-block;
+    margin:5px;
+    font-weight:700;
 }
 
-.result-card {
-    background: #FFFFFF;
-    padding: 30px;
-    border-radius: 24px;
-    border: 1px solid #E5E7EB;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
-    margin-top: 20px;
-    margin-bottom: 20px;
+.bad {
+    background:#FEE2E2;
+    color:#991B1B !important;
+    padding:8px 14px;
+    border-radius:999px;
+    display:inline-block;
+    margin:5px;
+    font-weight:700;
 }
 
-.skill-good {
-    background: #DCFCE7;
-    color: #166534 !important;
-    padding: 8px 14px;
-    border-radius: 999px;
-    display: inline-block;
-    margin: 5px;
-    font-weight: 700;
+.neutral {
+    background:#EAF2FF;
+    color:#315B84 !important;
+    padding:8px 14px;
+    border-radius:999px;
+    display:inline-block;
+    margin:5px;
+    font-weight:700;
 }
 
-.skill-missing {
-    background: #FEE2E2;
-    color: #991B1B !important;
-    padding: 8px 14px;
-    border-radius: 999px;
-    display: inline-block;
-    margin: 5px;
-    font-weight: 700;
+.percent {
+    color:#5B7FA6 !important;
+    font-weight:900;
+    font-size:24px;
 }
 
-.percent-box {
-    background: #EEF5FF;
-    padding: 14px 18px;
-    border-radius: 16px;
-    display: inline-block;
-    font-weight: 800;
-    color: #4F7FAE !important;
+.metric-box {
+    background:#FFFFFF;
+    padding:20px;
+    border-radius:20px;
+    border:1px solid #E5E7EB;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(15,23,42,0.05);
 }
 
-.small-muted {
-    color: #6B7280 !important;
-    font-size: 16px;
-}
+.metric-box h2 { color:#5B7FA6 !important; }
 </style>
 """, unsafe_allow_html=True)
 
 if "page" not in st.session_state:
     st.session_state.page = "home"
 
-careers = {
-    "Content Creator": {
-        "skills": ["Public Speaking", "Editing", "Gambar"],
-        "desc": "Cocok untuk kamu yang suka membuat konten, berbicara di depan kamera, mengedit, dan membuat visual menarik.",
-        "tips": {
-            "Public Speaking": "Latihan berbicara 1-2 menit di depan kamera, lalu evaluasi suara, ekspresi, dan kejelasan penyampaian.",
-            "Editing": "Pelajari dasar edit video seperti cut, transisi, subtitle, audio, dan color adjustment.",
-            "Gambar": "Latihan membuat thumbnail, poster, atau layout visual sederhana agar konten terlihat lebih menarik."
-        }
+hard_skills = ["Coding", "Data Analysis", "Design", "Video Editing", "Microsoft Excel", "Digital Marketing"]
+soft_skills = ["Public Speaking", "Communication", "Leadership", "Problem Solving", "Teamwork"]
+competition_options = ["Lomba Desain", "Lomba Coding", "Lomba Bisnis", "Lomba Karya Tulis", "Lomba Konten", "Belum Pernah"]
+education_options = ["Pilih pendidikan terakhirmu", "SMA/SMK", "D3", "S1", "S2"]
+
+jobs = [
+    {
+        "title": "Data Analyst Intern",
+        "required_hard": ["Data Analysis", "Microsoft Excel", "Coding"],
+        "required_soft": ["Problem Solving", "Communication"],
+        "education": ["D3", "S1"],
+        "preferred_competition": ["Lomba Karya Tulis", "Lomba Bisnis"],
+        "desc": "Cocok untuk mahasiswa yang suka membaca data, membuat laporan, dan menemukan insight dari angka."
     },
-    "Programmer / Web Developer": {
-        "skills": ["Coding", "Menghitung"],
-        "desc": "Cocok untuk kamu yang suka membuat program, menyusun logika, dan membangun website atau aplikasi sederhana.",
-        "tips": {
-            "Coding": "Pelajari dasar pemrograman seperti variabel, kondisi, perulangan, function, lalu buat project kecil.",
-            "Menghitung": "Latihan logika matematika dasar, algoritma sederhana, dan pemecahan masalah secara sistematis."
-        }
+    {
+        "title": "UI/UX Designer Intern",
+        "required_hard": ["Design"],
+        "required_soft": ["Communication", "Problem Solving"],
+        "education": ["SMA/SMK", "D3", "S1"],
+        "preferred_competition": ["Lomba Desain", "Lomba Konten"],
+        "desc": "Cocok untuk mahasiswa yang suka desain tampilan aplikasi, user flow, dan pengalaman pengguna."
     },
-    "Data Analyst": {
-        "skills": ["Menghitung", "Coding"],
-        "desc": "Cocok untuk kamu yang suka membaca data, menghitung, membuat laporan, dan mencari pola dari angka.",
-        "tips": {
-            "Menghitung": "Pelajari statistik dasar seperti rata-rata, persentase, perbandingan, dan cara membaca grafik.",
-            "Coding": "Pelajari Python atau spreadsheet untuk mengolah data sederhana dan membuat visualisasi."
-        }
+    {
+        "title": "Content Creator Intern",
+        "required_hard": ["Video Editing", "Design"],
+        "required_soft": ["Public Speaking", "Communication"],
+        "education": ["SMA/SMK", "D3", "S1"],
+        "preferred_competition": ["Lomba Konten", "Lomba Desain"],
+        "desc": "Cocok untuk mahasiswa yang suka membuat video, konten media sosial, dan komunikasi visual."
     },
-    "UI/UX Designer": {
-        "skills": ["Gambar", "Editing"],
-        "desc": "Cocok untuk kamu yang suka desain tampilan aplikasi, membuat layout, dan menyusun pengalaman pengguna.",
-        "tips": {
-            "Gambar": "Latihan membuat wireframe, layout aplikasi, dan komposisi warna yang rapi.",
-            "Editing": "Pelajari cara merapikan visual, memilih font, mengatur spacing, dan membuat prototype sederhana."
-        }
+    {
+        "title": "Web Developer Intern",
+        "required_hard": ["Coding"],
+        "required_soft": ["Problem Solving", "Teamwork"],
+        "education": ["D3", "S1"],
+        "preferred_competition": ["Lomba Coding"],
+        "desc": "Cocok untuk mahasiswa yang suka membuat website, menyusun logika, dan membangun sistem."
     },
-    "Digital Marketer": {
-        "skills": ["Public Speaking", "Editing"],
-        "desc": "Cocok untuk kamu yang tertarik promosi digital, membuat konten, dan menyampaikan pesan produk ke audiens.",
-        "tips": {
-            "Public Speaking": "Latihan membuat script promosi singkat yang jelas, persuasif, dan mudah dipahami.",
-            "Editing": "Pelajari desain konten promosi, video pendek, dan visual iklan sederhana."
-        }
+    {
+        "title": "Digital Marketing Intern",
+        "required_hard": ["Digital Marketing", "Microsoft Excel", "Design"],
+        "required_soft": ["Communication", "Public Speaking"],
+        "education": ["SMA/SMK", "D3", "S1"],
+        "preferred_competition": ["Lomba Bisnis", "Lomba Konten"],
+        "desc": "Cocok untuk mahasiswa yang tertarik promosi digital, campaign, konten, dan analisis performa."
     }
+]
+
+learning_tips = {
+    "Coding": "Pelajari dasar pemrograman seperti variabel, kondisi, perulangan, dan function. Setelah itu buat project sederhana seperti website profil atau kalkulator.",
+    "Data Analysis": "Latihan membaca data, membuat grafik, menghitung rata-rata/persentase, dan membuat kesimpulan dari data.",
+    "Design": "Latihan membuat poster, UI sederhana, layout landing page, dan belajar komposisi warna serta typography.",
+    "Video Editing": "Pelajari cut video, subtitle, transisi, audio, color adjustment, dan thumbnail untuk video pendek.",
+    "Microsoft Excel": "Pelajari rumus IF, VLOOKUP/XLOOKUP, Pivot Table, grafik, dan dashboard sederhana.",
+    "Digital Marketing": "Pelajari content planning, copywriting, social media strategy, dan basic ads.",
+    "Public Speaking": "Latihan presentasi 1-2 menit, rekam diri sendiri, lalu evaluasi artikulasi, ekspresi, dan kejelasan pesan.",
+    "Communication": "Latihan menjelaskan ide secara singkat, jelas, dan terstruktur.",
+    "Leadership": "Ikut project kelompok atau organisasi kecil untuk melatih koordinasi, pembagian tugas, dan pengambilan keputusan.",
+    "Problem Solving": "Latihan membedah masalah dengan pola: masalah utama, penyebab, alternatif solusi, dan langkah pengerjaan.",
+    "Teamwork": "Biasakan bekerja dalam tim, memberi update progress, menerima feedback, dan menyelesaikan konflik kecil."
 }
 
-skill_options = ["Public Speaking", "Coding", "Editing", "Menghitung", "Gambar"]
+def score_job(education, competitions, selected_hard, selected_soft, job):
+    hard_match = [s for s in job["required_hard"] if s in selected_hard]
+    soft_match = [s for s in job["required_soft"] if s in selected_soft]
+    hard_score = (len(hard_match) / len(job["required_hard"])) * 45
+    soft_score = (len(soft_match) / len(job["required_soft"])) * 30
+    edu_score = 15 if education in job["education"] else 0
+    competition_match = [c for c in competitions if c in job["preferred_competition"]]
+    comp_score = 10 if competition_match else 0
+    score = int(hard_score + soft_score + edu_score + comp_score)
+    missing_hard = [s for s in job["required_hard"] if s not in selected_hard]
+    missing_soft = [s for s in job["required_soft"] if s not in selected_soft]
+    return score, hard_match, soft_match, missing_hard, missing_soft
+
+def readiness_level(score):
+    if score >= 80:
+        return "Sangat Siap", "Profil kamu sudah sangat sesuai dengan pekerjaan ini."
+    elif score >= 60:
+        return "Cukup Siap", "Profil kamu sudah cukup sesuai, tetapi masih ada beberapa skill yang perlu ditingkatkan."
+    elif score >= 40:
+        return "Perlu Pengembangan", "Kamu memiliki dasar yang relevan, tetapi masih perlu memperkuat beberapa skill utama."
+    else:
+        return "Belum Siap", "Profil kamu masih perlu banyak dikembangkan untuk posisi ini."
+
+def analyze_profile():
+    results = []
+    for job in jobs:
+        score, hard_match, soft_match, missing_hard, missing_soft = score_job(
+            st.session_state.education,
+            st.session_state.competitions,
+            st.session_state.selected_hard,
+            st.session_state.selected_soft,
+            job
+        )
+        results.append({
+            **job,
+            "score": score,
+            "hard_match": hard_match,
+            "soft_match": soft_match,
+            "missing_hard": missing_hard,
+            "missing_soft": missing_soft
+        })
+    return sorted(results, key=lambda x: x["score"], reverse=True)
 
 if st.session_state.page == "home":
-    left, right = st.columns([1.2, 1])
+    col1, col2 = st.columns([1.2, 1])
 
-    with left:
+    with col1:
         st.markdown("""
-        <div class="card">
-            <div class="brand">PATHCAREER AI</div>
-            <p class="desc">
-            PathCareer adalah sistem AI yang membantu mahasiswa menemukan karier yang sesuai
-            berdasarkan skill yang dimiliki, lalu memberikan rekomendasi pembelajaran untuk
-            meningkatkan kemampuan.
+        <div class="blue-card">
+            <div class="logo">PATHCAREER AI</div>
+            <p class="desc-white">
+            Sistem rekomendasi pekerjaan berbasis profil mahasiswa.
+            Analisis pendidikan, lomba/prestasi, hard skill, dan soft skill untuk menemukan
+            career path yang paling sesuai.
             </p>
-            <div class="hero-title">
-            Find Your<br>
-            Path, Build<br>
-            Your Future
-            </div>
+            <div class="hero">Build Your<br>Career Path<br>Smarter</div>
         </div>
         """, unsafe_allow_html=True)
 
         if st.button("MULAI"):
-            st.session_state.page = "analysis"
+            st.session_state.page = "form"
             st.rerun()
 
-    with right:
+    with col2:
         st.markdown("""
         <div class="card">
-            <h3>Kenapa PathCareer?</h3>
-            <div class="feature-card">
-                <b>🎯 Rekomendasi Karier</b>
-                <p>Sistem mencocokkan skill kamu dengan pilihan karier yang relevan.</p>
-            </div>
-            <div class="feature-card">
-                <b>📊 Skill Gap Analysis</b>
-                <p>Sistem menunjukkan skill yang sudah cocok dan skill yang masih perlu dipelajari.</p>
-            </div>
-            <div class="feature-card">
-                <b>📚 Roadmap Belajar</b>
-                <p>Kamu mendapat saran belajar yang sesuai dengan skill yang belum dikuasai.</p>
-            </div>
+            <h3>Fitur Sistem</h3>
+            <div class="info"><b>🎓 Analisis Pendidikan</b><br>Menyesuaikan lowongan dengan jenjang pendidikan pengguna.</div>
+            <div class="info"><b>🏆 Analisis Lomba</b><br>Menghitung pengalaman lomba/prestasi yang relevan.</div>
+            <div class="info"><b>🧠 Skill Matching</b><br>Mencocokkan hard skill dan soft skill dengan kebutuhan pekerjaan.</div>
+            <div class="info"><b>📚 Roadmap Belajar</b><br>Memberi saran pengembangan berdasarkan skill gap.</div>
         </div>
         """, unsafe_allow_html=True)
 
-else:
+elif st.session_state.page == "form":
     if st.button("← Kembali"):
         st.session_state.page = "home"
         st.rerun()
 
     st.markdown("""
     <div class="card">
-        <h1>Analisis Karier Mahasiswa</h1>
-        <p class="small-muted">
-        Pilih skill yang kamu miliki. Sistem akan menghitung kecocokan karier,
-        menampilkan skill gap, dan memberikan tips belajar yang lebih spesifik.
-        </p>
+        <h1>Isi Profil Pengguna</h1>
+        <p class="desc">Isi data berikut agar sistem dapat menganalisis kecocokan kamu dengan beberapa pilihan pekerjaan.</p>
     </div>
     """, unsafe_allow_html=True)
 
-    nama = st.text_input("Nama kamu", placeholder="Masukkan nama kamu")
+    nama = st.text_input("Nama pengguna", placeholder="Masukkan nama kamu")
+    education = st.selectbox("Pendidikan terakhir", education_options)
+    competitions = st.multiselect("Lomba / prestasi yang pernah diikuti", competition_options, placeholder="Pilih satu atau lebih")
+    selected_hard = st.multiselect("Hard skill yang kamu miliki", hard_skills, placeholder="Choose your hard skill")
+    selected_soft = st.multiselect("Soft skill yang kamu miliki", soft_skills, placeholder="Choose your soft skill")
 
-    selected_skills = st.multiselect(
-        "Pilih skill yang kamu miliki",
-        skill_options,
-        placeholder="Choose your option"
-    )
-
-    if st.button("Analisis Sekarang"):
-        if not selected_skills:
-            st.warning("Pilih minimal satu skill dulu.")
+    if st.button("Lihat Hasil Analisis"):
+        if not nama.strip():
+            st.warning("Masukkan nama dulu.")
             st.stop()
 
-        hasil = []
+        if education == "Pilih pendidikan terakhirmu":
+            st.warning("Pilih pendidikan terakhir dulu.")
+            st.stop()
 
-        for career_name, data in careers.items():
-            required = data["skills"]
-            cocok = [skill for skill in required if skill in selected_skills]
-            kurang = [skill for skill in required if skill not in selected_skills]
-            score = int((len(cocok) / len(required)) * 100)
+        if not selected_hard and not selected_soft:
+            st.warning("Pilih minimal satu hard skill atau soft skill.")
+            st.stop()
 
-            hasil.append({
-                "career": career_name,
-                "score": score,
-                "desc": data["desc"],
-                "cocok": cocok,
-                "kurang": kurang,
-                "tips": data["tips"]
-            })
+        st.session_state.nama = nama
+        st.session_state.education = education
+        st.session_state.competitions = competitions
+        st.session_state.selected_hard = selected_hard
+        st.session_state.selected_soft = selected_soft
+        st.session_state.page = "result"
+        st.rerun()
 
-        hasil = sorted(hasil, key=lambda x: x["score"], reverse=True)
-        terbaik = hasil[0]
+elif st.session_state.page == "result":
+    if st.button("← Edit Profil"):
+        st.session_state.page = "form"
+        st.rerun()
 
+    results = analyze_profile()
+    best = results[0]
+    level, level_desc = readiness_level(best["score"])
+
+    st.markdown(f"""
+    <div class="result-blue">
+        <h2>Hasil Analisis untuk {st.session_state.nama}</h2>
+        <h1>{best['title']}</h1>
+        <p>{best['desc']}</p>
+        <h3>Kecocokan: {best['score']}%</h3>
+        <p><b>Career Readiness:</b> {level}</p>
+        <p>{level_desc}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.progress(best["score"] / 100)
+
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
         st.markdown(f"""
-        <div class="result-card">
-            <h2>Rekomendasi Karier Terbaik</h2>
-            <h1 style="color:#4F7FAE !important;">{terbaik['career']}</h1>
-            <p>{terbaik['desc']}</p>
-            <div class="percent-box">Tingkat Kecocokan: {terbaik['score']}%</div>
+        <div class="metric-box">
+            <h2>{st.session_state.education}</h2>
+            <p>Pendidikan</p>
         </div>
         """, unsafe_allow_html=True)
 
-        st.progress(terbaik["score"] / 100)
+    with c2:
+        st.markdown(f"""
+        <div class="metric-box">
+            <h2>{len(st.session_state.competitions)}</h2>
+            <p>Lomba/Prestasi</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-        st.markdown("<h3>Skill yang Sudah Sesuai</h3>", unsafe_allow_html=True)
-        if terbaik["cocok"]:
-            html = ""
-            for skill in terbaik["cocok"]:
-                html += f'<span class="skill-good">{skill}</span>'
-            st.markdown(html, unsafe_allow_html=True)
-        else:
-            st.write("Belum ada skill yang cocok dengan karier ini.")
+    with c3:
+        total_skill = len(st.session_state.selected_hard) + len(st.session_state.selected_soft)
+        st.markdown(f"""
+        <div class="metric-box">
+            <h2>{total_skill}</h2>
+            <p>Total Skill</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-        st.markdown("<h3>Skill Gap / Skill yang Perlu Dipelajari</h3>", unsafe_allow_html=True)
-        if terbaik["kurang"]:
-            html = ""
-            for skill in terbaik["kurang"]:
-                html += f'<span class="skill-missing">{skill}</span>'
-            st.markdown(html, unsafe_allow_html=True)
-        else:
-            st.success("Semua skill utama sudah sesuai.")
+    st.subheader("Ringkasan Profil")
+    ringkasan_html = '<div class="result">'
+    ringkasan_html += "<h4>Hard Skill</h4>"
+    for s in st.session_state.selected_hard:
+        ringkasan_html += f'<span class="neutral">{s}</span>'
+    ringkasan_html += "<h4>Soft Skill</h4>"
+    for s in st.session_state.selected_soft:
+        ringkasan_html += f'<span class="neutral">{s}</span>'
+    ringkasan_html += "<h4>Lomba / Prestasi</h4>"
+    if st.session_state.competitions:
+        for c in st.session_state.competitions:
+            ringkasan_html += f'<span class="neutral">{c}</span>'
+    else:
+        ringkasan_html += "<p>Belum ada lomba/prestasi yang dipilih.</p>"
+    ringkasan_html += "</div>"
+    st.markdown(ringkasan_html, unsafe_allow_html=True)
 
-        st.markdown("<h3>Roadmap Belajar yang Disarankan</h3>", unsafe_allow_html=True)
+    st.subheader("Skill yang Sudah Cocok")
+    matched_all = best["hard_match"] + best["soft_match"]
+    for s in matched_all:
+        st.markdown(f'<span class="good">{s}</span>', unsafe_allow_html=True)
 
-        if terbaik["kurang"]:
-            for i, skill in enumerate(terbaik["kurang"], start=1):
-                tip = terbaik["tips"][skill]
-                st.markdown(f"""
-                <div class="feature-card">
-                    <h4>{i}. Pelajari {skill}</h4>
-                    <p>{tip}</p>
-                </div>
-                """, unsafe_allow_html=True)
-        else:
-            st.markdown("""
-            <div class="feature-card">
-                <h4>Lanjut ke Portofolio</h4>
-                <p>Kamu bisa mulai membuat project kecil, sertifikasi, atau portofolio sesuai bidang karier yang direkomendasikan.</p>
-            </div>
-            """, unsafe_allow_html=True)
+    st.subheader("Skill Gap")
+    missing_all = best["missing_hard"] + best["missing_soft"]
+    if missing_all:
+        for s in missing_all:
+            st.markdown(f'<span class="bad">{s}</span>', unsafe_allow_html=True)
+    else:
+        st.success("Skill utama sudah sesuai.")
 
-        st.markdown("<h3>Ranking Semua Karier</h3>", unsafe_allow_html=True)
-
-        for item in hasil:
+    st.subheader("Saran Pengembangan")
+    if missing_all:
+        for s in missing_all:
             st.markdown(f"""
-            <div class="result-card">
-                <h4>{item['career']}</h4>
-                <p>{item['desc']}</p>
-                <div class="percent-box">Kecocokan: {item['score']}%</div>
+            <div class="info">
+                <b>{s}</b><br>
+                {learning_tips.get(s, "Pelajari dasar skill ini lalu buat project sederhana.")}
             </div>
             """, unsafe_allow_html=True)
-            st.progress(item["score"] / 100)
+
+    st.subheader("Ranking Semua Pekerjaan")
+    for item in results:
+        item_level, _ = readiness_level(item["score"])
+        st.markdown(f"""
+        <div class="result">
+            <h3>{item['title']}</h3>
+            <p>{item['desc']}</p>
+            <div class="percent">Kecocokan: {item['score']}%</div>
+            <p><b>Status:</b> {item_level}</p>
+        </div>
+        """, unsafe_allow_html=True)
+        st.progress(item["score"] / 100)
