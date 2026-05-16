@@ -12,7 +12,6 @@ h1,h2,h3,h4,h5,h6,p,label,span,div {
     color:#1F2937 !important;
 }
 
-/* CARD PUTIH */
 .card {
     background:#FFFFFF;
     padding:34px;
@@ -21,7 +20,6 @@ h1,h2,h3,h4,h5,h6,p,label,span,div {
     margin-bottom:24px;
 }
 
-/* CARD BIRU GRADASI */
 .blue-card, .result-blue {
     background: linear-gradient(135deg, #3F6F9F 0%, #6F98C4 55%, #9CC3EA 100%);
     padding:38px;
@@ -30,9 +28,7 @@ h1,h2,h3,h4,h5,h6,p,label,span,div {
     margin-bottom:26px;
 }
 
-/* PAKSA SEMUA TEKS DI BIRU JADI PUTIH */
-.blue-card *,
-.result-blue * {
+.blue-card *, .result-blue * {
     color:#FFFFFF !important;
 }
 
@@ -40,13 +36,11 @@ h1,h2,h3,h4,h5,h6,p,label,span,div {
     font-size:32px;
     font-weight:900;
     letter-spacing:1px;
-    color:#FFFFFF !important;
 }
 
 .hero {
     font-size:64px;
     font-weight:900;
-    color:#FFFFFF !important;
     line-height:1;
     margin-top:26px;
 }
@@ -98,7 +92,9 @@ h1,h2,h3,h4,h5,h6,p,label,span,div {
     border-radius:16px !important;
 }
 
-.stTextInput input::placeholder { color:#EAF2FF !important; }
+.stTextInput input::placeholder {
+    color:#EAF2FF !important;
+}
 
 div[data-baseweb="select"] > div {
     background:#6F98C4 !important;
@@ -106,22 +102,31 @@ div[data-baseweb="select"] > div {
     border-radius:16px !important;
 }
 
-div[data-baseweb="select"] * { color:#FFFFFF !important; }
+div[data-baseweb="select"] * {
+    color:#FFFFFF !important;
+}
 
 ul[role="listbox"], li[role="option"] {
     background:#6F98C4 !important;
     color:#FFFFFF !important;
 }
 
-li[role="option"] * { color:#FFFFFF !important; }
-li[role="option"]:hover { background:#5B7FA6 !important; }
+li[role="option"] * {
+    color:#FFFFFF !important;
+}
+
+li[role="option"]:hover {
+    background:#5B7FA6 !important;
+}
 
 span[data-baseweb="tag"] {
     background:#4A6C90 !important;
     color:#FFFFFF !important;
 }
 
-span[data-baseweb="tag"] * { color:#FFFFFF !important; }
+span[data-baseweb="tag"] * {
+    color:#FFFFFF !important;
+}
 
 .good {
     background:#DCFCE7;
@@ -168,86 +173,165 @@ span[data-baseweb="tag"] * { color:#FFFFFF !important; }
     box-shadow:0 8px 20px rgba(15,23,42,0.05);
 }
 
-.metric-box h2 { color:#5B7FA6 !important; }
+.metric-box h2 {
+    color:#5B7FA6 !important;
+}
+
+.glints-btn {
+    display:inline-block;
+    background:#5B7FA6;
+    color:#FFFFFF !important;
+    border:none;
+    border-radius:999px;
+    padding:12px 32px;
+    font-weight:800;
+    text-decoration:none;
+    margin-top:12px;
+}
+
+.glints-btn:hover {
+    background:#4A6C90;
+    color:#FFFFFF !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
 if "page" not in st.session_state:
     st.session_state.page = "home"
 
-hard_skills = ["Coding", "Data Analysis", "Design", "Video Editing", "Microsoft Excel", "Digital Marketing"]
-soft_skills = ["Public Speaking", "Communication", "Leadership", "Problem Solving", "Teamwork"]
-competition_options = ["Lomba Desain", "Lomba Coding", "Lomba Bisnis", "Lomba Karya Tulis", "Lomba Konten", "Belum Pernah"]
-education_options = ["Pilih pendidikan terakhirmu", "SMA/SMK", "D3", "S1", "S2"]
+hard_skills = [
+    "Coding",
+    "Data Analisis",
+    "Design",
+    "Video Editing",
+    "Microsoft Excel",
+    "Digital Marketing",
+    "UI/UX Design",
+    "Content Writing"
+]
+
+soft_skills = [
+    "Public Speaking",
+    "Leadership",
+    "Problem Solving",
+    "Teamwork",
+    "Kreatif"
+]
+
+competition_options = [
+    "Lomba Desain",
+    "Lomba Coding",
+    "Lomba Bisnis",
+    "Lomba Karya Tulis",
+    "Lomba Konten",
+    "Belum Pernah"
+]
+
+education_options = [
+    "Pilih pendidikan terakhirmu",
+    "SMA/SMK",
+    "D3",
+    "S1",
+    "S2"
+]
 
 jobs = [
     {
-        "title": "Data Analyst Intern",
-        "required_hard": ["Data Analysis", "Microsoft Excel", "Coding"],
-        "required_soft": ["Problem Solving", "Communication"],
-        "education": ["D3", "S1"],
+        "title": "Data Analyst",
+        "required_hard": ["Data Analisis", "Microsoft Excel", "Coding"],
+        "required_soft": ["Problem Solving", "Leadership"],
+        "education": ["D3", "S1", "S2"],
         "preferred_competition": ["Lomba Karya Tulis", "Lomba Bisnis"],
-        "desc": "Cocok untuk mahasiswa yang suka membaca data, membuat laporan, dan menemukan insight dari angka."
+        "desc": "Cocok untuk pengguna yang suka menganalisis data, membaca pola, membuat laporan, dan menemukan insight dari angka untuk membantu pengambilan keputusan.",
+        "glints_link": "https://glints.com/id/opportunities/jobs/explore?keyword=data+analyst&country=ID&locationName=All+Cities%2FProvinces&lowestLocationLevel=1"
     },
     {
-        "title": "UI/UX Designer Intern",
-        "required_hard": ["Design"],
-        "required_soft": ["Communication", "Problem Solving"],
+        "title": "UI/UX Designer",
+        "required_hard": ["UI/UX Design", "Design"],
+        "required_soft": ["Kreatif", "Problem Solving"],
         "education": ["SMA/SMK", "D3", "S1"],
         "preferred_competition": ["Lomba Desain", "Lomba Konten"],
-        "desc": "Cocok untuk mahasiswa yang suka desain tampilan aplikasi, user flow, dan pengalaman pengguna."
+        "desc": "Cocok untuk pengguna yang tertarik membuat tampilan aplikasi atau website yang menarik, nyaman digunakan, dan mudah dipahami pengguna.",
+        "glints_link": "https://glints.com/id/opportunities/jobs/explore?keyword=ui%2Fux+design&country=ID&locationName=All+Cities%2FProvinces&lowestLocationLevel=1"
     },
     {
-        "title": "Content Creator Intern",
+        "title": "Content Creator",
         "required_hard": ["Video Editing", "Design"],
-        "required_soft": ["Public Speaking", "Communication"],
+        "required_soft": ["Public Speaking", "Kreatif"],
         "education": ["SMA/SMK", "D3", "S1"],
         "preferred_competition": ["Lomba Konten", "Lomba Desain"],
-        "desc": "Cocok untuk mahasiswa yang suka membuat video, konten media sosial, dan komunikasi visual."
+        "desc": "Cocok untuk pengguna yang suka membuat video, konten media sosial, dan menyampaikan ide kreatif melalui visual maupun audio.",
+        "glints_link": "https://glints.com/id/opportunities/jobs/explore?keyword=content+creator&country=ID&locationName=All+Cities%2FProvinces&lowestLocationLevel=1"
     },
     {
-        "title": "Web Developer Intern",
+        "title": "Web Developer",
         "required_hard": ["Coding"],
         "required_soft": ["Problem Solving", "Teamwork"],
-        "education": ["D3", "S1"],
+        "education": ["D3", "S1", "S2"],
         "preferred_competition": ["Lomba Coding"],
-        "desc": "Cocok untuk mahasiswa yang suka membuat website, menyusun logika, dan membangun sistem."
+        "desc": "Cocok untuk pengguna yang suka membuat website, membangun sistem, dan menyusun logika pemrograman.",
+        "glints_link": "https://glints.com/id/opportunities/jobs/explore?keyword=web+developer&country=ID&locationName=All+Cities%2FProvinces&lowestLocationLevel=1"
     },
     {
-        "title": "Digital Marketing Intern",
+        "title": "Digital Marketing Specialist",
         "required_hard": ["Digital Marketing", "Microsoft Excel", "Design"],
-        "required_soft": ["Communication", "Public Speaking"],
+        "required_soft": ["Public Speaking", "Kreatif"],
         "education": ["SMA/SMK", "D3", "S1"],
         "preferred_competition": ["Lomba Bisnis", "Lomba Konten"],
-        "desc": "Cocok untuk mahasiswa yang tertarik promosi digital, campaign, konten, dan analisis performa."
+        "desc": "Cocok untuk pengguna yang tertarik dalam strategi promosi digital, campaign media sosial, dan analisis performa pemasaran.",
+        "glints_link": "https://glints.com/id/opportunities/jobs/explore?keyword=digital+marketing+specialist&country=ID&locationName=All+Cities%2FProvinces&lowestLocationLevel=1"
+    },
+    {
+        "title": "Social Media Specialist",
+        "required_hard": ["Digital Marketing", "Design", "Video Editing"],
+        "required_soft": ["Public Speaking", "Kreatif"],
+        "education": ["SMA/SMK", "D3", "S1"],
+        "preferred_competition": ["Lomba Konten", "Lomba Bisnis"],
+        "desc": "Cocok untuk pengguna yang suka mengelola media sosial, membuat strategi konten, dan meningkatkan engagement audience.",
+        "glints_link": "https://glints.com/id/opportunities/jobs/explore?keyword=MEDIA+SOCIAL+SPECIALIST&country=ID&locationName=All+Cities%2FProvinces&lowestLocationLevel=1"
+    },
+    {
+        "title": "Content Writer",
+        "required_hard": ["Content Writing"],
+        "required_soft": ["Kreatif", "Leadership"],
+        "education": ["SMA/SMK", "D3", "S1", "S2"],
+        "preferred_competition": ["Lomba Karya Tulis", "Lomba Konten"],
+        "desc": "Cocok untuk pengguna yang suka menulis artikel, karya ilmiah, blog, dan membuat konten berbasis tulisan.",
+        "glints_link": "https://glints.com/id/opportunities/jobs/explore?keyword=CONTENT+WRITER&country=ID&locationName=All+Cities%2FProvinces&lowestLocationLevel=1"
     }
 ]
 
 learning_tips = {
-    "Coding": "Pelajari dasar pemrograman seperti variabel, kondisi, perulangan, dan function. Setelah itu buat project sederhana seperti website profil atau kalkulator.",
-    "Data Analysis": "Latihan membaca data, membuat grafik, menghitung rata-rata/persentase, dan membuat kesimpulan dari data.",
-    "Design": "Latihan membuat poster, UI sederhana, layout landing page, dan belajar komposisi warna serta typography.",
-    "Video Editing": "Pelajari cut video, subtitle, transisi, audio, color adjustment, dan thumbnail untuk video pendek.",
+    "Coding": "Pelajari HTML, CSS, JavaScript, serta dasar Python atau SQL. Setelah itu buat project sederhana seperti website profil, kalkulator, atau dashboard kecil.",
+    "Data Analisis": "Pelajari cara membaca data, membuat grafik, dashboard sederhana, serta memahami pola dan insight dari data.",
+    "Design": "Latihan membuat poster, thumbnail, layout media sosial, dan pahami komposisi warna, typography, serta visual hierarchy.",
+    "Video Editing": "Pelajari cut video, subtitle, transisi, audio, color grading, dan pembuatan video pendek untuk media sosial.",
     "Microsoft Excel": "Pelajari rumus IF, VLOOKUP/XLOOKUP, Pivot Table, grafik, dan dashboard sederhana.",
-    "Digital Marketing": "Pelajari content planning, copywriting, social media strategy, dan basic ads.",
-    "Public Speaking": "Latihan presentasi 1-2 menit, rekam diri sendiri, lalu evaluasi artikulasi, ekspresi, dan kejelasan pesan.",
-    "Communication": "Latihan menjelaskan ide secara singkat, jelas, dan terstruktur.",
+    "Digital Marketing": "Pelajari social media strategy, copywriting, SEO dasar, content planning, dan analisis performa campaign.",
+    "UI/UX Design": "Pelajari wireframe, user flow, prototype, usability, dan desain interface menggunakan Figma.",
+    "Content Writing": "Latihan menulis artikel, blog, caption, dan karya ilmiah secara terstruktur dengan bahasa yang jelas.",
+    "Public Speaking": "Latihan presentasi singkat, rekam diri sendiri, lalu evaluasi artikulasi, ekspresi, dan kejelasan pesan.",
     "Leadership": "Ikut project kelompok atau organisasi kecil untuk melatih koordinasi, pembagian tugas, dan pengambilan keputusan.",
     "Problem Solving": "Latihan membedah masalah dengan pola: masalah utama, penyebab, alternatif solusi, dan langkah pengerjaan.",
-    "Teamwork": "Biasakan bekerja dalam tim, memberi update progress, menerima feedback, dan menyelesaikan konflik kecil."
+    "Teamwork": "Biasakan bekerja dalam tim, memberi update progress, menerima feedback, dan menyelesaikan konflik kecil.",
+    "Kreatif": "Biasakan mencari ide baru, mengikuti tren, membuat referensi, dan mengembangkan project kreatif sederhana."
 }
 
 def score_job(education, competitions, selected_hard, selected_soft, job):
     hard_match = [s for s in job["required_hard"] if s in selected_hard]
     soft_match = [s for s in job["required_soft"] if s in selected_soft]
+    competition_match = [c for c in competitions if c in job["preferred_competition"]]
+
     hard_score = (len(hard_match) / len(job["required_hard"])) * 45
     soft_score = (len(soft_match) / len(job["required_soft"])) * 30
     edu_score = 15 if education in job["education"] else 0
-    competition_match = [c for c in competitions if c in job["preferred_competition"]]
     comp_score = 10 if competition_match else 0
-    score = int(hard_score + soft_score + edu_score + comp_score)
+
+    score = min(100, int(hard_score + soft_score + edu_score + comp_score))
+
     missing_hard = [s for s in job["required_hard"] if s not in selected_hard]
     missing_soft = [s for s in job["required_soft"] if s not in selected_soft]
+
     return score, hard_match, soft_match, missing_hard, missing_soft
 
 def readiness_level(score):
@@ -262,6 +346,7 @@ def readiness_level(score):
 
 def analyze_profile():
     results = []
+
     for job in jobs:
         score, hard_match, soft_match, missing_hard, missing_soft = score_job(
             st.session_state.education,
@@ -270,6 +355,7 @@ def analyze_profile():
             st.session_state.selected_soft,
             job
         )
+
         results.append({
             **job,
             "score": score,
@@ -278,6 +364,7 @@ def analyze_profile():
             "missing_hard": missing_hard,
             "missing_soft": missing_soft
         })
+
     return sorted(results, key=lambda x: x["score"], reverse=True)
 
 if st.session_state.page == "home":
@@ -304,10 +391,18 @@ if st.session_state.page == "home":
         st.markdown("""
         <div class="card">
             <h3>Fitur Sistem</h3>
-            <div class="info"><b>🎓 Analisis Pendidikan</b><br>Menyesuaikan lowongan dengan jenjang pendidikan pengguna.</div>
-            <div class="info"><b>🏆 Analisis Lomba</b><br>Menghitung pengalaman lomba/prestasi yang relevan.</div>
-            <div class="info"><b>🧠 Skill Matching</b><br>Mencocokkan hard skill dan soft skill dengan kebutuhan pekerjaan.</div>
-            <div class="info"><b>📚 Roadmap Belajar</b><br>Memberi saran pengembangan berdasarkan skill gap.</div>
+            <div class="info"><b>🎓 Analisis Pendidikan</b><br>Menyesuaikan rekomendasi pekerjaan dengan jenjang pendidikan pengguna.</div>
+            <div class="info"><b>🏆 Analisis Lomba</b><br>Menghitung pengalaman lomba atau prestasi yang relevan dengan bidang pekerjaan.</div>
+            <div class="info"><b>🧠 Skill Matching</b><br>Mencocokkan hard skill dan soft skill pengguna dengan kebutuhan setiap pekerjaan.</div>
+            <div class="info"><b>📚 Roadmap Belajar</b><br>Memberikan saran pengembangan berdasarkan skill gap yang ditemukan.</div>
+        </div>
+
+        <div class="card">
+            <h3>Tujuan Sistem</h3>
+            <div class="info"><b>🎯 Membantu mahasiswa mengenali career path</b><br>Sistem membantu pengguna memahami bidang pekerjaan yang paling sesuai dengan profil pendidikan, pengalaman, dan skill.</div>
+            <div class="info"><b>📊 Memberikan rekomendasi berbasis analisis</b><br>Hasil rekomendasi diberikan berdasarkan perhitungan kecocokan antara profil pengguna dan kebutuhan pekerjaan.</div>
+            <div class="info"><b>📌 Mengetahui skill gap</b><br>Pengguna dapat mengetahui skill yang sudah sesuai dan skill yang masih perlu dikembangkan.</div>
+            <div class="info"><b>🚀 Mendukung kesiapan karier</b><br>Sistem memberi arahan pengembangan agar mahasiswa lebih siap menghadapi dunia kerja.</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -326,8 +421,8 @@ elif st.session_state.page == "form":
     nama = st.text_input("Nama pengguna", placeholder="Masukkan nama kamu")
     education = st.selectbox("Pendidikan terakhir", education_options)
     competitions = st.multiselect("Lomba / prestasi yang pernah diikuti", competition_options, placeholder="Pilih satu atau lebih")
-    selected_hard = st.multiselect("Hard skill yang kamu miliki", hard_skills, placeholder="Choose your hard skill")
-    selected_soft = st.multiselect("Soft skill yang kamu miliki", soft_skills, placeholder="Choose your soft skill")
+    selected_hard = st.multiselect("Hard skill yang kamu miliki", hard_skills, placeholder="Pilih hard skill kamu")
+    selected_soft = st.multiselect("Soft skill yang kamu miliki", soft_skills, placeholder="Pilih soft skill kamu")
 
     if st.button("Lihat Hasil Analisis"):
         if not nama.strip():
@@ -367,6 +462,7 @@ elif st.session_state.page == "result":
         <h3>Kecocokan: {best['score']}%</h3>
         <p><b>Career Readiness:</b> {level}</p>
         <p>{level_desc}</p>
+        <a class="glints-btn" href="{best['glints_link']}" target="_blank">Cari Lowongan di Glints</a>
     </div>
     """, unsafe_allow_html=True)
 
@@ -400,29 +496,43 @@ elif st.session_state.page == "result":
         """, unsafe_allow_html=True)
 
     st.subheader("Ringkasan Profil")
+
     ringkasan_html = '<div class="result">'
     ringkasan_html += "<h4>Hard Skill</h4>"
+
     for s in st.session_state.selected_hard:
         ringkasan_html += f'<span class="neutral">{s}</span>'
+
     ringkasan_html += "<h4>Soft Skill</h4>"
+
     for s in st.session_state.selected_soft:
         ringkasan_html += f'<span class="neutral">{s}</span>'
+
     ringkasan_html += "<h4>Lomba / Prestasi</h4>"
+
     if st.session_state.competitions:
         for c in st.session_state.competitions:
             ringkasan_html += f'<span class="neutral">{c}</span>'
     else:
         ringkasan_html += "<p>Belum ada lomba/prestasi yang dipilih.</p>"
+
     ringkasan_html += "</div>"
     st.markdown(ringkasan_html, unsafe_allow_html=True)
 
     st.subheader("Skill yang Sudah Cocok")
+
     matched_all = best["hard_match"] + best["soft_match"]
-    for s in matched_all:
-        st.markdown(f'<span class="good">{s}</span>', unsafe_allow_html=True)
+
+    if matched_all:
+        for s in matched_all:
+            st.markdown(f'<span class="good">{s}</span>', unsafe_allow_html=True)
+    else:
+        st.info("Belum ada skill yang cocok dengan pekerjaan utama.")
 
     st.subheader("Skill Gap")
+
     missing_all = best["missing_hard"] + best["missing_soft"]
+
     if missing_all:
         for s in missing_all:
             st.markdown(f'<span class="bad">{s}</span>', unsafe_allow_html=True)
@@ -430,6 +540,7 @@ elif st.session_state.page == "result":
         st.success("Skill utama sudah sesuai.")
 
     st.subheader("Saran Pengembangan")
+
     if missing_all:
         for s in missing_all:
             st.markdown(f"""
@@ -438,16 +549,27 @@ elif st.session_state.page == "result":
                 {learning_tips.get(s, "Pelajari dasar skill ini lalu buat project sederhana.")}
             </div>
             """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <div class="info">
+            <b>Profil sudah kuat</b><br>
+            Kamu sudah memenuhi skill utama untuk pekerjaan ini. Selanjutnya, tingkatkan portfolio, buat project nyata, dan siapkan CV yang relevan.
+        </div>
+        """, unsafe_allow_html=True)
 
     st.subheader("Ranking Semua Pekerjaan")
+
     for item in results:
         item_level, _ = readiness_level(item["score"])
+
         st.markdown(f"""
         <div class="result">
             <h3>{item['title']}</h3>
             <p>{item['desc']}</p>
             <div class="percent">Kecocokan: {item['score']}%</div>
             <p><b>Status:</b> {item_level}</p>
+            <a class="glints-btn" href="{item['glints_link']}" target="_blank">Lihat di Glints</a>
         </div>
         """, unsafe_allow_html=True)
+
         st.progress(item["score"] / 100)
