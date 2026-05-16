@@ -375,9 +375,9 @@ if st.session_state.page == "home":
         <div class="blue-card">
             <div class="logo">PATHCAREER AI</div>
             <p class="desc-white">
-            Sistem rekomendasi pekerjaan berbasis profil mahasiswa.
-            Analisis pendidikan, lomba/prestasi, hard skill, dan soft skill untuk menemukan
-            career path yang paling sesuai.
+            Sistem rekomendasi pekerjaan berbasis analisis skill mismatch.
+            Sistem ini mencocokkan pendidikan, pengalaman lomba, hard skill, dan soft skill
+            dengan kebutuhan pekerjaan untuk menemukan career path yang paling sesuai.
             </p>
             <div class="hero">Build Your<br>Career Path<br>Smarter</div>
         </div>
@@ -405,10 +405,10 @@ if st.session_state.page == "home":
             st.markdown("""
             <div class="card">
                 <h3>Tujuan Sistem</h3>
-                <div class="info"><b>🎯 Mengenali Career Path</b><br>Membantu pengguna memahami pekerjaan yang paling sesuai dengan profilnya.</div>
-                <div class="info"><b>📊 Rekomendasi Berbasis Analisis</b><br>Memberikan hasil berdasarkan kecocokan antara profil pengguna dan kebutuhan pekerjaan.</div>
-                <div class="info"><b>📌 Mengetahui Skill Gap</b><br>Menampilkan skill yang sudah sesuai dan skill yang masih perlu dikembangkan.</div>
-                <div class="info"><b>🚀 Mendukung Kesiapan Karier</b><br>Memberi arahan agar pengguna lebih siap menghadapi dunia kerja.</div>
+                <div class="info"><b>🎯 Mengidentifikasi Skill Mismatch</b><br>Membantu pengguna mengetahui ketidaksesuaian antara skill yang dimiliki dengan kebutuhan pekerjaan.</div>
+                <div class="info"><b>📊 Menganalisis Kesenjangan Skill</b><br>Membandingkan hard skill dan soft skill pengguna dengan requirement setiap bidang pekerjaan.</div>
+                <div class="info"><b>📌 Menentukan Skill Prioritas</b><br>Menampilkan skill yang paling perlu dipelajari atau ditingkatkan agar lebih sesuai dengan target pekerjaan.</div>
+                <div class="info"><b>🚀 Meningkatkan Kesiapan Karier</b><br>Memberikan arahan pengembangan skill agar pengguna lebih siap menghadapi kebutuhan dunia kerja.</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -420,7 +420,7 @@ elif st.session_state.page == "form":
     st.markdown("""
     <div class="card">
         <h1>Isi Profil Pengguna</h1>
-        <p class="desc">Isi data berikut agar sistem dapat menganalisis kecocokan kamu dengan beberapa pilihan pekerjaan.</p>
+        <p class="desc">Isi data berikut agar sistem dapat menganalisis kecocokan kamu dengan beberapa pilihan pekerjaan dan menemukan kemungkinan skill mismatch.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -525,7 +525,7 @@ elif st.session_state.page == "result":
     ringkasan_html += "</div>"
     st.markdown(ringkasan_html, unsafe_allow_html=True)
 
-    st.subheader("Skill yang Sudah Cocok")
+    st.subheader("Skill yang Sudah Sesuai")
 
     matched_all = best["hard_match"] + best["soft_match"]
 
@@ -533,9 +533,9 @@ elif st.session_state.page == "result":
         for s in matched_all:
             st.markdown(f'<span class="good">{s}</span>', unsafe_allow_html=True)
     else:
-        st.info("Belum ada skill yang cocok dengan pekerjaan utama.")
+        st.info("Belum ada skill yang sesuai dengan pekerjaan utama.")
 
-    st.subheader("Skill Gap")
+    st.subheader("Skill Mismatch / Skill Gap")
 
     missing_all = best["missing_hard"] + best["missing_soft"]
 
@@ -543,9 +543,9 @@ elif st.session_state.page == "result":
         for s in missing_all:
             st.markdown(f'<span class="bad">{s}</span>', unsafe_allow_html=True)
     else:
-        st.success("Skill utama sudah sesuai.")
+        st.success("Tidak ada skill mismatch utama. Skill kamu sudah sesuai dengan kebutuhan pekerjaan ini.")
 
-    st.subheader("Saran Pengembangan")
+    st.subheader("Saran Pengembangan Skill")
 
     if missing_all:
         for s in missing_all:
