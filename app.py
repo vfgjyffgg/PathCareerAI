@@ -6,7 +6,7 @@ st.markdown("""
 <style>
 header, #MainMenu, footer {visibility: hidden;}
 .stApp { background: #F4F7FB; }
-.block-container { padding: 35px 75px; }
+.block-container { padding: 35px 75px; max-width: 100%; }
 
 h1,h2,h3,h4,h5,h6,p,label,span,div {
     color:#1F2937 !important;
@@ -368,7 +368,7 @@ def analyze_profile():
     return sorted(results, key=lambda x: x["score"], reverse=True)
 
 if st.session_state.page == "home":
-    col1, col2 = st.columns([1.2, 1])
+    col1, col2 = st.columns([1, 1.25])
 
     with col1:
         st.markdown("""
@@ -388,23 +388,29 @@ if st.session_state.page == "home":
             st.rerun()
 
     with col2:
-        st.markdown("""
-        <div class="card">
-            <h3>Fitur Sistem</h3>
-            <div class="info"><b>🎓 Analisis Pendidikan</b><br>Menyesuaikan rekomendasi pekerjaan dengan jenjang pendidikan pengguna.</div>
-            <div class="info"><b>🏆 Analisis Lomba</b><br>Menghitung pengalaman lomba atau prestasi yang relevan dengan bidang pekerjaan.</div>
-            <div class="info"><b>🧠 Skill Matching</b><br>Mencocokkan hard skill dan soft skill pengguna dengan kebutuhan setiap pekerjaan.</div>
-            <div class="info"><b>📚 Roadmap Belajar</b><br>Memberikan saran pengembangan berdasarkan skill gap yang ditemukan.</div>
-        </div>
+        fitur_col, tujuan_col = st.columns(2)
 
-        <div class="card">
-            <h3>Tujuan Sistem</h3>
-            <div class="info"><b>🎯 Membantu mahasiswa mengenali career path</b><br>Sistem membantu pengguna memahami bidang pekerjaan yang paling sesuai dengan profil pendidikan, pengalaman, dan skill.</div>
-            <div class="info"><b>📊 Memberikan rekomendasi berbasis analisis</b><br>Hasil rekomendasi diberikan berdasarkan perhitungan kecocokan antara profil pengguna dan kebutuhan pekerjaan.</div>
-            <div class="info"><b>📌 Mengetahui skill gap</b><br>Pengguna dapat mengetahui skill yang sudah sesuai dan skill yang masih perlu dikembangkan.</div>
-            <div class="info"><b>🚀 Mendukung kesiapan karier</b><br>Sistem memberi arahan pengembangan agar mahasiswa lebih siap menghadapi dunia kerja.</div>
-        </div>
-        """, unsafe_allow_html=True)
+        with fitur_col:
+            st.markdown("""
+            <div class="card">
+                <h3>Fitur Sistem</h3>
+                <div class="info"><b>🎓 Analisis Pendidikan</b><br>Menyesuaikan rekomendasi pekerjaan dengan jenjang pendidikan pengguna.</div>
+                <div class="info"><b>🏆 Analisis Lomba</b><br>Menghitung pengalaman lomba atau prestasi yang relevan dengan bidang pekerjaan.</div>
+                <div class="info"><b>🧠 Skill Matching</b><br>Mencocokkan hard skill dan soft skill pengguna dengan kebutuhan setiap pekerjaan.</div>
+                <div class="info"><b>📚 Roadmap Belajar</b><br>Memberikan saran pengembangan berdasarkan skill gap yang ditemukan.</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with tujuan_col:
+            st.markdown("""
+            <div class="card">
+                <h3>Tujuan Sistem</h3>
+                <div class="info"><b>🎯 Mengenali Career Path</b><br>Membantu pengguna memahami pekerjaan yang paling sesuai dengan profilnya.</div>
+                <div class="info"><b>📊 Rekomendasi Berbasis Analisis</b><br>Memberikan hasil berdasarkan kecocokan antara profil pengguna dan kebutuhan pekerjaan.</div>
+                <div class="info"><b>📌 Mengetahui Skill Gap</b><br>Menampilkan skill yang sudah sesuai dan skill yang masih perlu dikembangkan.</div>
+                <div class="info"><b>🚀 Mendukung Kesiapan Karier</b><br>Memberi arahan agar pengguna lebih siap menghadapi dunia kerja.</div>
+            </div>
+            """, unsafe_allow_html=True)
 
 elif st.session_state.page == "form":
     if st.button("← Kembali"):
